@@ -1,0 +1,93 @@
+.center {
+    text-align: center;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    /* flex: 1; would be enough but it looks bad in IE */
+    flex: 1 0 auto;
+}
+
+.ok {
+    background: url(/msg_ok.png) #EFFAED;
+    border-color: #AFD4A9;
+    padding-left: 55px;
+}
+
+.msg_text {
+    display: inline-block;
+    line-height: 150%;
+    vertical-align: middle;
+}
+
+.footer {
+
+}
+
+.footer-up {
+    background: #d66324;
+}
+
+.hero {
+    background: url(../img/city.jpg);
+    background-postion: 50% 0%;
+    background-size: cover;
+    height: 100%;
+    min-height: 600px;
+    position: relative;
+    width: 100%;
+    display: table;
+    font-family: Lato;
+}
+
+.text-center {
+    color: #fff;
+    text-align: center;
+    font-family: Lato;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.feature-icon {
+
+}
+
+
+.feature-title {
+    font-weight:500;
+    padding-top:20px;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.feature-description {
+
+}
+
+.row .col {
+    box-sizing:border-box;
+    float:left;
+    padding:0 0.75rem;
+}
+
+.features .feature-icon i {
+    color:#F62D51;
+    font-size:50px;
+    line-height:96px;
+
+}
+
+.pre-footer {
+    font-size: 30px;
+    line-hegiht: 40px;
+    text-align: center;
+}
