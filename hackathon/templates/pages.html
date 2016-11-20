@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static "js/pages.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+
+    {% if current_profile %}
+        <nav class=" blue-grey darken-4">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo" style="margin-left: 20px;">No Lawyers</a>
+                <ul id="nav-mboile" class="right hide-on-med-and-down">
+                    <li><a href="{% url "offers:index" %}">Agreements</a></li>
+                    <li><a title="{{ current_profile.user.get_username }}" href="{% url "profiles:me" %}"
+                           id="profile-dropdown-btn" data-activates="profile-dropdown"><i
+                            class="material-icons">person</i></a></li>
+                </ul>
+                <ul id="profile-dropdown" class="dropdown-content">
+                    <li><a href="{% url "profiles:me" %}">Profile</a></li>
+                    <li><a href="{% url "profiles:edit" %}">Edit</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url "logout" %}">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    {% else %}
+        <nav class=" blue-grey darken-4">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo" style="margin-left: 20px;">No Lawyers</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url "login" %}">Log in</a></li>
+                    <li><a href="{% url "signup" %}">Sign up</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{% url "login" %}">Log in</a></li>
+                    <li><a href="{% url "signup" %}">Sign up</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    {% endif %}
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+    <footer >
+    <div style="border-top: 1px solid #d66324;background: #ece8e2"   >
+        <div class="container" style="padding: 25px;text-align: center;">
+            © 2016 Made by Blockhain hackers
+        </div>
+    </div>
+</footer>
+{% endblock %}
+

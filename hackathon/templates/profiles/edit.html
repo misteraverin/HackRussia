@@ -1,0 +1,23 @@
+{% extends 'pages.html' %}
+
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+  <div class="container" style="padding-top:20px;>
+    <div class="card">
+      <form method="post">
+        <div class="card-content">
+          <span class="card-title">Edit profile</span>
+
+          {% csrf_token %}
+          {{ form.as_p }}
+        </div>
+
+        <div class="card-action">
+          <button class="btn waves-effect waves-light" type="submit">Save</button>
+          <a class="btn-flat black-text waves-effect waves-light" href="{% url 'profiles:me' %}">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

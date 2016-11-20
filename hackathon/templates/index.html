@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+  <div class="hero">
+    <div class="container text-center">
+        <h1 style="font-size: 6em;" s>No Lawyers</h1>
+        <p style="font-size: 1.3em;">
+            Code is the new law.
+        </p>
+        <a href="{% url "get-started" %}" class="waves-effect waves-light btn-large">Make agreement</a>
+    </div>
+
+</div>
+
+  <div class="container">
+    <div style="text-align: center; padding: 20px;">
+        <h2>Features</h2>
+    </div>
+    <div class="row" style="text-align:center;">
+        <div class="col l4">
+            <div class="feature-icon"><img style="height: 90px; 90px;" src="{% static "img/weights.png" %}"></div>
+            <div class="feature-title">No courts</div>
+            <div class="feature-description">Don't waste your funds on court duties.
+            </div>
+        </div>
+        <div class="col l4">
+            <div class="feature-icon"><i class="material-icons large" sty>perm_identity</i></div>
+            <div class="feature-title">No middlemen</div>
+            <div class="feature-description">
+                Your business operations are not subject of anyone's profit anymore.
+            </div>
+        </div>
+        <div class="col l4">
+            <div class="feature-icon"><i class="material-icons large">description</i></div>
+            <div class="feature-title">No paper documentation</div>
+            <div class="feature-description">
+                Quit polluting your office by paper.
+            </div>
+        </div>
+    </div>
+
+    <div class="pre-footer" style="padding-top: 80px;padding-bottom: 60px;">
+        <div style=" display: flex;justify-content: center; align-items: center;    ">
+            <div style="text-align: center;">
+                <div>Don't deal using lawyers, courts and attorneys.</div>
+                <div>Deal using smart contracts.</div>
+                <div>It is much cheaper</div>
+                <div>because they don't require any middlemen.</div>
+            </div>
+        </div>
+    </div>
+
+
+   <div class="row" style="margin-bottom: 60px;">
+        <div class="col l6" style="padding: 30px;">
+            <div>
+                <p class="flow-text">Log in system</p>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="email" type="email" class="validate">
+                    <label class="active" for="email">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="password" type="password" class="validate">
+                    <label class="active" for="password">Password</label>
+                </div>
+            </div>
+            <button id="refresh" class="btn waves-effect waves-light" type="submit" name="action">Log in
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+        <div class="col l6" style="border-left: 1px solid #ccc; padding: 30px;" >
+            <div>
+                <p class="flow-text">Sign up</p>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="email1" type="email" class="validate">
+                    <label class="active" for="email">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="password1" type="password" class="validate">
+                    <label class="active" for="password">Password</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="first_name2" type="text" class="validate">
+                    <label class="active" for="first_name2">First Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="first_name" type="text" class="validate">
+                    <label class="active" for="first_name">Last name</label>
+                </div>
+            </div>
+            <button id="refresh1" class="btn waves-effect waves-light" type="submit" name="action">Sign up
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<footer class=" blue-grey darken-4">
+    <div class="container" style="padding: 25px;text-align: center;color: #fff">
+        &copy; 2016 Made by Blockhain hackers
+    </div>
+</footer>
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static "js/init.js" %}"></script>
+{% endblock %}

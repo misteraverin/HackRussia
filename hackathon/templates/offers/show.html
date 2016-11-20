@@ -1,0 +1,60 @@
+{% extends 'pages.html' %}
+
+{% block title %}Договор #{{ offer.id }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Agreement #{{ offer.id }}</span>
+
+        <dl class="offer-info offer-extend">
+          <dt>From</dt>
+          <dd><a href="{% url "profiles:show" offer.offeror.id %}">{{ offer.offeror.user.get_username }} ({{ offer.offeror.user.first_name }} {{ offer.offeror.user.last_name }})</a> {% if current_profile == offer.offeror %}(You){% endif %}</dd>
+
+          <dt>To</dt>
+          <dd><a href="{% url "profiles:show" offer.offeree.id %}">{{ offer.offeree.user.get_username }} ({{ offer.offeree.user.first_name }} {{ offer.offeree.user.last_name }})</a> {% if current_profile == offer.offeree %}(You){% endif %}</dd>
+
+          <dt>Date</dt>
+          <dd>{{ offer.created_date }}</dd>
+
+          <dt>Status</dt>
+          <dd>
+            {% if offer.seen %}
+              Agreement <b>was seen by</b> recepient.
+            {% else %}
+              Agreement <b>wasn't seen by</b> recepient.
+            {% endif %}
+            <br>
+            {% if offer.accepted %}
+              Agreement <b>was accepted</b>.
+            {% else %}
+              Agreement <b>wasn't accepted yet</b>.
+            {% endif %}
+          </dd>
+
+          {% if offer.accepted %}
+            <dt>Acceptance date</dt>
+            <dd>{{ offer.accepted_date }}</dd>
+          {% endif %}
+        </dl>
+
+        <div class="offer-terms">
+          {{ offer.terms }}
+        </div>
+      </div>
+
+      {% if not offer.accepted %}
+        <div class="card-action">
+          {% if current_profile == offer.offeror %}
+            <a class="teal-text" href="{% url 'offers:edit' offer.id %}">Edit</a>
+          {% endif %}
+
+          {% if current_profile == offer.offeree %}
+            <a class="teal-text" href="{% url "offers:accept" offer.id %}">Accept</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
